@@ -3,7 +3,7 @@ import * as prismicH from '@prismicio/helpers';
 
 export default function Homepage({ page }) {
   console.log(page)
-  return <h1>{page.uid}</h1>
+  return <h1>{page?.uid}</h1>
 }
 
 

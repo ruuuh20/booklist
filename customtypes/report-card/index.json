@@ -1,0 +1,9 @@
+{
+  "id": "report-card",
+  "label": "Report Card",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {}
+  }
+}

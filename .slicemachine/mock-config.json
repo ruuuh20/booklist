@@ -1,0 +1,33 @@
+{
+  "_cts": {
+    "page": {
+      "title": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
+      }
+    },
+    "book": {},
+    "report-card": {}
+  },
+  "slices": {
+    "CallToAction": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "BookGrid": {
+      "default": {
+        "items": {}
+      }
+    }
+  }
+}

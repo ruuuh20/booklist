@@ -2,7 +2,6 @@ import Layout from "@/components/layout";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Container from "@/components/container";
-import Main from "../components/Main";
 import { fade } from "@/helpers/transitions";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import useInvite from "@/components/hooks/useInvite";

@@ -2,7 +2,6 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
-import Home from '@/components/Home'
 
 import Link from 'next/link'
 import { fade } from '@/helpers/transitions'

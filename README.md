@@ -14,6 +14,5 @@ A preview of books/material used in classes, for parents, students, and teachers
 - [Prismic](https://prismic.io)
 - Custom [PostCSS](https://postcss.org/) setup preconfigured to allow for `@import` and simple CSS nesting
 - [Framer Motion 4](https://www.framer.com/motion/) (With [LazyMotion](https://www.framer.com/api/motion/lazy-motion/) setup for smaller bundle sizes)
-- [Preact](https://preactjs.com/) preconfigured instead of React for smaller bundle size\*
 - SEO preconfigured with [next-seo](https://github.com/garmeeh/next-seo)
-- [Module Aliasing](https://nextjs.org/docs/advanced-features/module-path-aliases) preconfigured with `jsconfig.json`
+- Airtable

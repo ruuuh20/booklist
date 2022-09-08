@@ -17,7 +17,7 @@ const BookGrid = ({ slice }) => (
       : <p>start by editing this slice from inside Slice Machine!</p>
     }
 
-<div className="grid grid-cols-[180px_180px_180px_180px] gap-8">
+<div className="grid grid-cols-[160px_160px_156px_160px] gap-8">
   { slice?.items?.map((item, i) => (
     <div className="rounded">
         <div class="rounded">
@@ -25,12 +25,12 @@ const BookGrid = ({ slice }) => (
     </div>
       <PrismicRichText field={item.bookTitle} components={{
     heading1: ({ children }) => <Heading>{children}</Heading>,
-    paragraph: ({ children }) => <p className="text-gray-500 font-bold">{children}</p>,
+    paragraph: ({ children }) => <p className="text-gray-500 text-[12px] font-bold">{children}</p>,
   }} />
-      <PrismicRichText field={item.bookAuthor} components={{
+      {/* <PrismicRichText field={item.bookAuthor} components={{
     heading1: ({ children }) => <Heading>{children}</Heading>,
     paragraph: ({ children }) => <p className="text-gray-500 text-base">{children}</p>,
-  }}/>
+  }}/> */}
     {/* <img src={item.bookImage.url} alt={item.bookImage.alt} /> */}
   
     </div>

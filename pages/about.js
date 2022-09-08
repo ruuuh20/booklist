@@ -2,9 +2,12 @@ import Layout from '@/components/layout'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
+import Home from '@/components/Home'
+
 import Link from 'next/link'
 import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
+
 
 
 export default function About() {
@@ -36,6 +39,7 @@ export default function About() {
           </Container>
         </m.div>
       </LazyMotion>
+      <Home />
 
       <Footer />
     </Layout>

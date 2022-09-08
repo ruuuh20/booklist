@@ -1,22 +1,20 @@
-import Layout from "@/components/layout";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import Container from "@/components/container";
-import { fade } from "@/helpers/transitions";
+import Layout from "@/components/layout.js";
+import Header from "@/components/header.js";
+import Footer from "@/components/footer.js";
+import Container from "@/components/container.js";
+import { fade } from "@/helpers/transitions.js";
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import useInvite from "@/components/hooks/useInvite";
+import useInvite from "@/components/hooks/useInvite.ts";
 import { createClient } from "../prismicio";
-import { PrismicText } from "@prismicio/react";
-import { BookGrid } from "slices";
+
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
-import AssignmentsList from "../components/assignmentsList";
+import AssignmentsList from "../components/assignmentsList.js";
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getAllByType("page");
 
-  console.log(page[0].data);
   return {
     props: { page }, // Will be passed to the page component as props
   };

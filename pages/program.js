@@ -1,7 +1,7 @@
-import Layout from "@/components/layout";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import Container from "@/components/container";
+import Layout from "@/components/layout.js";
+import Header from "@/components/header.js";
+import Footer from "@/components/footer.js";
+import Container from "@/components/container.js";
 
 import Link from "next/link";
 import { fade } from "@/helpers/transitions";

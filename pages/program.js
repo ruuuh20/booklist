@@ -6,7 +6,7 @@ import Container from "@/components/container.js";
 import Link from "next/link";
 import { fade } from "@/helpers/transitions";
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Main } from "next/document";
+
 
 export default function Program() {
   return (
@@ -40,7 +40,7 @@ export default function Program() {
           </Container>
         </m.div>
       </LazyMotion>
-      <Main />
+
 
       <Footer />
     </Layout>

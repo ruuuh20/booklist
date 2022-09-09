@@ -38,7 +38,7 @@ export default function About() {
           </Container>
         </m.div>
       </LazyMotion>
-      <Home />
+     
 
       <Footer />
     </Layout>

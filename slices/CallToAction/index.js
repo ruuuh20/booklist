@@ -1,4 +1,3 @@
-import React from 'react'
 import { PrismicRichText, PrismicText } from '@prismicio/react'
 
 const CallToAction = ({ slice }) => (

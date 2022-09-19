@@ -11,7 +11,7 @@ import Image from "next/image";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 import AssignmentsList from "../components/assignmentsList.js";
-import ArrowDown from "../public/arrow-down.svg";
+
 import PhoneIcon from "@/components/phoneIcon";
 import MapIcon from "../components/mapIcon";
 import MailIcon from "../components/mailIcon";
@@ -164,6 +164,11 @@ export default function Home({ page }) {
                         You're enrolled in{" "}
                         <strong>{inviteResponse.invite.currentCourse}. </strong>
                         The class meets on {inviteResponse.messages.meetings}.
+                      </div>
+                    </div>
+                    <div className="flex row text-[22px]  mb-4">
+                      <div className="flex-auto">
+                        You are currently registered for {inviteResponse.invite.registered}.
                       </div>
                     </div>
                     <div className="flex my-2 row">

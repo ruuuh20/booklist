@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Arial', 'sans-serif'],
+      'sans': ['aktiv-grotesk', 'Arial', 'sans-serif'],
       'mono': ['Lucida Console', 'Courier', 'monospace'],
     },
     screens: {
@@ -21,9 +21,12 @@ module.exports = {
       colors: {
         'black': '#000',
         'white': '#FFF',
-        'example-color': {
+        'darkgray': 'rgb(51,49,47)',
+        'lightgray': 'rgb(242,242,242)',
+        'tan': 'rgb(226, 220, 195)',
+        'darkred': {
           light: '#ffb288',
-          DEFAULT: '#d18d67',
+          DEFAULT: 'rgb(197, 79, 0);',
           dark: '#ce8860',
         },
       }

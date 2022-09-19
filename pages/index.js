@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Layout from "@/components/layout.js";
 import Header from "@/components/header.js";
 import Footer from "@/components/footer.js";
@@ -6,10 +7,16 @@ import { fade } from "@/helpers/transitions.js";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import useInvite from "@/components/hooks/useInvite.ts";
 import { createClient } from "../prismicio";
-
+import Image from "next/image";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 import AssignmentsList from "../components/assignmentsList.js";
+import ArrowDown from "../public/arrow-down.svg";
+import PhoneIcon from "@/components/phoneIcon";
+import MapIcon from "../components/mapIcon";
+import MailIcon from "../components/mailIcon";
+
+
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
@@ -22,6 +29,17 @@ export async function getStaticProps({ previewData }) {
 
 export default function Home({ page }) {
   const { inviteResponse, error, updating, updateRsvp } = useInvite();
+  const [isActive, setIsActive] = useState(false);
+  const accordionData = {
+    title: "Comments/Feedback",
+    content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
+      laborum cupiditate possimus labore, hic temporibus velit dicta earum
+      suscipit commodi eum enim atque at? Et perspiciatis dolore iure
+      voluptatem.`,
+  };
+
+  const { title, content } = accordionData;
+
   if (error) {
     return <div>{error}</div>;
   }
@@ -45,73 +63,146 @@ export default function Home({ page }) {
           className="mb-12 md:mb-16 xl:mb-24"
         >
           <Container>
-            <m.article variants={fade}>
-              <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">
-                2022 Fall Semester
-              </h1>
-              <h2>Student Report</h2>
-
-              <div className="content max-w-3xl mb-4">
-                <p>Dates: Sept 5 - Jane 10, 2022</p>
-              </div>
-            </m.article>
             <div className="relative h-full flex overflow-hidden overflow-y-auto">
-              <aside className="aside-left w-full md:w-[350px]">
-                <div className="main-menu relative">
-                  <div className="mt-6 rounded-30 bg-white widget">
-                    <p>Title</p>
-                    <p>blah blah</p>
+              <aside className="aside-left w-full md:w-[480px]">
+                <div className="main-menu relative text-darkgray">
+                  <div className="mt-6 rounded-30 widget">
+                    <h2 className="title-text text-[2.6rem] font-bold">
+                      Superbooks Academy
+                    </h2>
+                    <p>Welcome!</p>
                   </div>
-                  <div className="mt-6 rounded-30 bg-white widget">Books</div>
+                  <div className="mt-6 rounded-30  widget">
+                    {" "}
+                    <h2 className="font-bold text-2xl mb-4">
+                      2022 Fall Semester
+                    </h2>
+                    <h4 className="font-bold text-xl">
+                      Sept 5 - Jane 10, 2022
+                    </h4>
+                    <div className="row my-2 py-2 border-t border-gray-500">
+                      <p className="text-base uppercase mb-2">Report Card</p>
+                      <a
+                        href="https://studentreportwrapped.netlify.app/card"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg- rounded-lg p-1 block w-[90px]"
+                      >
+                        <div className=" sidebar-img flex justify-center">
+                          <Image
+                            src="/reportcard.png"
+                            alt="Report Card"
+                            width="75"
+                            height="90"
+                          />
+                        </div>
+                      </a>
+                    </div>
+                    <div>
+                      <div className="accordion">
+                        <div className="accordion-item">
+                          <div
+                            className="accordion-title cursor-pointer"
+                            onClick={() => setIsActive(!isActive)}
+                          >
+                            <div className="flex items-center">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={11.3}
+                                height={6.9}
+                                style={{
+                                  enableBackground: "new 0 0 11.3 6.9",
+                                }}
+                                xmlSpace="preserve"
+                                className={`transform opacity-50 transition ease-in-out duration-300 mr-1 ${
+                                  isActive ? "rotate-0" : "rotate-[-90deg]"
+                                }`}
+                              >
+                                <path
+                                  style={{
+                                    fill: "none",
+                                    stroke: "#010101",
+                                    strokeWidth: 1.25,
+                                    strokeMiterlimit: 10,
+                                  }}
+                                  d="m.6.6 4.9 5.1 5.2-5"
+                                />
+                              </svg>
+                              <span className="text-gray-500">{title}</span>
+                            </div>
+                          </div>
+                          {isActive && (
+                            <div
+                              className={`mt-4 accordion-content transition-opacity ease-in-out duration-500 delay-250 ${
+                                isActive ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              {content}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                  <div className="mt-6 rounded-30 bg-white widget w-full text-gray-500">
-                    <p>If you have any questions, please contact us:</p>
-                    <p className="text-sm">(201) 123-4567</p>
-                    <p className="text-sm">info@peakeducenter.com</p>
-                    <p className="text-sm">317 Harrington Ave, Closter NJ</p>
+                  <div className="my-6 leading-8 rounded-30 bg-white widget w-full text-[18px]">
+                    <p className="my-2">Contact us:</p>
+                    <p className="flex justify-between pr-16"><PhoneIcon/>(201) 123-4567</p>
+                    <p className="flex justify-between pr-16"><MailIcon />info@superbooks.edu</p>
+                    <p className="flex justify-between pr-16"><MapIcon />100 Abc St.</p>
                   </div>
                 </div>
               </aside>
               <main className="pl-4 w-full">
                 <div>
-                  <h1 className="">{inviteResponse.messages.title}</h1>
-
-                  <div className="">
-                    <h3 className="text-max">
+                  <div className="text-darkgray">
+                    <h3 className="text-max ">
                       Hello, <strong>{inviteResponse.invite.name}</strong>!
                     </h3>
-                    <p>Welcome to {inviteResponse.invite.currentCourse}</p>
-                    <p>The class meets on {inviteResponse.messages.meetings}</p>
-                    <p>{inviteResponse.messages.invitation}</p>
-                    <fieldset className="" disabled={updating}>
-                      <legend>{inviteResponse.messages.question}</legend>
-
-                      <label htmlFor="yes" className="form-control">
-                        <input
-                          type="radio"
-                          id="yes"
-                          name="purchasing"
-                          value="yes"
-                          onChange={onRsvpChange}
-                          checked={inviteResponse.invite.purchasing === true}
-                        />
-                        {inviteResponse.messages.answer1}
-                      </label>
-
-                      <label htmlFor="no" className="form-control">
-                        <input
-                          type="radio"
-                          id="no"
-                          name="purchasing"
-                          value="no"
-                          onChange={onRsvpChange}
-                          checked={inviteResponse.invite.purchasing === false}
-                        />
-                        {inviteResponse.messages.answer2}
-                      </label>
-                    </fieldset>
+                    <div className="flex row text-[22px]  mb-4">
+                      <div className="flex-auto">
+                        You're enrolled in{" "}
+                        <strong>{inviteResponse.invite.currentCourse}. </strong>
+                        The class meets on {inviteResponse.messages.meetings}.
+                      </div>
+                    </div>
+                    <div className="flex my-2 row">
+                      <div>
+                        <fieldset className="" disabled={updating}>
+                          <legend className="text-[22px]">
+                            {inviteResponse.messages.question}
+                          </legend>
+                          <label htmlFor="yes" className="form-control my-2">
+                            <input
+                              type="radio"
+                              id="yes"
+                              name="purchasing"
+                              value="yes"
+                              onChange={onRsvpChange}
+                              checked={
+                                inviteResponse.invite.purchasing === true
+                              }
+                            />
+                            {inviteResponse.messages.answer1}
+                          </label>
+                          <label htmlFor="no" className="form-control my-2">
+                            <input
+                              type="radio"
+                              id="no"
+                              name="purchasing"
+                              value="no"
+                              onChange={onRsvpChange}
+                              checked={
+                                inviteResponse.invite.purchasing === false
+                              }
+                            />
+                            {inviteResponse.messages.answer2}
+                          </label>
+                        </fieldset>
+                      </div>
+                    </div>
                   </div>
-                  <div>
+                  <div className="mt-4">
                     <SliceZone
                       slices={page[0].data.slices}
                       components={components}

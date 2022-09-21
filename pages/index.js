@@ -63,32 +63,32 @@ export default function Home({ page }) {
           className="mb-12 md:mb-16 xl:mb-24"
         >
           <Container>
-            <div className="relative h-full flex overflow-hidden overflow-y-auto">
+            <div className="relative flex h-full overflow-hidden overflow-y-auto">
               <aside className="aside-left w-full md:w-[480px]">
-                <div className="main-menu relative text-darkgray">
+                <div className="relative main-menu text-darkgray">
                   <div className="mt-6 rounded-30 widget">
                     <h2 className="title-text text-[2.6rem] font-bold">
                       Superbooks Academy
                     </h2>
-                    <p>Welcome!</p>
+                    <p className="text-[18px]">Welcome 👋</p>
                   </div>
-                  <div className="mt-6 rounded-30  widget">
+                  <div className="mt-6 rounded-30 widget">
                     {" "}
-                    <h2 className="font-bold text-2xl mb-4">
+                    <h2 className="mb-4 text-2xl font-bold">
                       2022 Fall Semester
                     </h2>
-                    <h4 className="font-bold text-xl">
+                    <h4 className="text-xl font-bold">
                       Sept 5 - Jane 10, 2022
                     </h4>
-                    <div className="row my-2 py-2 border-t border-gray-500">
-                      <p className="text-base uppercase mb-2">Report Card</p>
+                    <div className="py-2 my-2 border-t border-gray-400 row">
+                      <p className="mb-2 text-base uppercase">Report Card</p>
                       <a
                         href="https://studentreportwrapped.netlify.app/card"
                         target="_blank"
                         rel="noreferrer"
                         className="bg- rounded-lg p-1 block w-[90px]"
                       >
-                        <div className=" sidebar-img flex justify-center">
+                        <div className="flex justify-center sidebar-img">
                           <Image
                             src="/reportcard.png"
                             alt="Report Card"
@@ -98,11 +98,12 @@ export default function Home({ page }) {
                         </div>
                       </a>
                     </div>
+                    <div className="py-2 my-2 row"> <p className="mb-2 text-base uppercase">Attendance</p><p>100%</p></div>
                     <div>
                       <div className="accordion">
                         <div className="accordion-item">
                           <div
-                            className="accordion-title cursor-pointer"
+                            className="cursor-pointer accordion-title"
                             onClick={() => setIsActive(!isActive)}
                           >
                             <div className="flex items-center">
@@ -153,7 +154,7 @@ export default function Home({ page }) {
                   </div>
                 </div>
               </aside>
-              <main className="pl-4 w-full">
+              <main className="w-full pl-4">
                 <div>
                   <div className="text-darkgray">
                     <h3 className="text-max ">
@@ -161,23 +162,21 @@ export default function Home({ page }) {
                     </h3>
                     <div className="flex row text-[22px]  mb-4">
                       <div className="flex-auto">
-                        You're enrolled in{" "}
-                        <strong>{inviteResponse.invite.currentCourse}. </strong>
-                        The class meets on {inviteResponse.messages.meetings}.
+                        <p>
+                          You're enrolled in{" "}
+                          The class meets on {inviteResponse.messages.meetings}.
+                        </p>
+                        <p>  You are currently registered for {inviteResponse.invite.registered}.</p>
                       </div>
                     </div>
-                    <div className="flex row text-[22px]  mb-4">
-                      <div className="flex-auto">
-                        You are currently registered for {inviteResponse.invite.registered}.
-                      </div>
-                    </div>
+                   
                     <div className="flex my-2 row">
                       <div>
                         <fieldset className="" disabled={updating}>
                           <legend className="text-[22px]">
                             {inviteResponse.messages.question}
                           </legend>
-                          <label htmlFor="yes" className="form-control my-2">
+                          <label htmlFor="yes" className="my-2 form-control">
                             <input
                               type="radio"
                               id="yes"
@@ -190,7 +189,7 @@ export default function Home({ page }) {
                             />
                             {inviteResponse.messages.answer1}
                           </label>
-                          <label htmlFor="no" className="form-control my-2">
+                          <label htmlFor="no" className="my-2 form-control">
                             <input
                               type="radio"
                               id="no"
@@ -221,7 +220,7 @@ export default function Home({ page }) {
             {/* {page.map((p, index) => (
               <div className="pt-16">
                 <div className="flex flex-wrap">
-                  <h4 className="text-2xl px-2 border-black border rounded-full items-center">
+                  <h4 className="items-center px-2 text-2xl border border-black rounded-full">
                     <PrismicText field={p.data.title} />
                   </h4>
                 </div>

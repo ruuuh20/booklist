@@ -2,8 +2,8 @@ import { PrismicRichText } from '@prismicio/react'
 import { PrismicNextImage } from '@prismicio/next'
 
 const BookGrid = ({ slice }) => (
-  <section className="w-full md:max-w-4xl mt-4">
-    <span className="title text-3xl">
+  <section className="w-full mt-4 md:max-w-4xl">
+    <span className="text-3xl title">
       {
         slice.primary.title ?
         <PrismicRichText field={slice.primary.title}/>
@@ -26,11 +26,11 @@ const BookGrid = ({ slice }) => (
     </div>
       <PrismicRichText field={item.bookTitle} components={{
     heading2: ({ children }) => <Heading>{children}</Heading>,
-    paragraph: ({ children }) => <p className="text-darkgray text-center text-[15px]">{children}</p>,
+    paragraph: ({ children }) => <p className="text-gray-600 text-center text-[15px]">{children}</p>,
   }} />
       {/* <PrismicRichText field={item.bookAuthor} components={{
     heading1: ({ children }) => <Heading>{children}</Heading>,
-    paragraph: ({ children }) => <p className="text-gray-500 text-base">{children}</p>,
+    paragraph: ({ children }) => <p className="text-base text-gray-500">{children}</p>,
   }}/> */}
     {/* <img src={item.bookImage.url} alt={item.bookImage.alt} /> */}
   

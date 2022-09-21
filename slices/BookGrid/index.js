@@ -16,9 +16,9 @@ const BookGrid = ({ slice }) => (
       : <p>start by editing this slice from inside Slice Machine!</p>
     }
 
-<div className="grid grid-cols-[220px_220px_220px_220px] border-outer">
+<div className="grid grid-cols-[50%_50%] md:grid-cols-[220px_220px_220px_220px] border-outer">
   { slice?.items?.map((item, i) => (
-    <div className="rounded p-[35px] border-main grid-item">
+    <div className="rounded p-[38px] border-main grid-item">
         <div class="rounded">
       <PrismicNextImage field={item.bookImage} 
       imgixParams={{ sat: -30 }} 

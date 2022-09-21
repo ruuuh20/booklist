@@ -16,6 +16,8 @@ import PhoneIcon from "@/components/phoneIcon";
 import MapIcon from "../components/mapIcon";
 import MailIcon from "../components/mailIcon";
 
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
@@ -30,6 +32,7 @@ export async function getStaticProps({ previewData }) {
 export default function Home({ page }) {
   const { inviteResponse, error, updating, updateRsvp } = useInvite();
   const [isActive, setIsActive] = useState(false);
+  const [value, onChange] = useState(new Date());
   const accordionData = {
     title: "Comments/Feedback",
     content: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis sapiente
@@ -63,7 +66,7 @@ export default function Home({ page }) {
           className="mb-12 md:mb-16 xl:mb-24"
         >
           <Container>
-            <div className="relative flex h-full overflow-hidden overflow-y-auto">
+            <div className="relative h-full overflow-hidden overflow-y-auto md:flex">
               <aside className="aside-left w-full md:w-[480px]">
                 <div className="relative main-menu text-darkgray">
                   <div className="mt-6 rounded-30 widget">
@@ -98,7 +101,11 @@ export default function Home({ page }) {
                         </div>
                       </a>
                     </div>
-                    <div className="py-2 my-2 row"> <p className="mb-2 text-base uppercase">Attendance</p><p>100%</p></div>
+                    <div className="py-2 my-2 row"> <p className="mb-2 text-base uppercase">Attendance</p>
+                    <p>100%</p>
+                     <div className="p-6">
+                       <Calendar className="cal" onChange={onChange} value={value} /></div>
+                     </div>
                     <div>
                       <div className="accordion">
                         <div className="accordion-item">
@@ -115,7 +122,7 @@ export default function Home({ page }) {
                                   enableBackground: "new 0 0 11.3 6.9",
                                 }}
                                 xmlSpace="preserve"
-                                className={`transform opacity-50 transition ease-in-out duration-300 mr-1 ${
+                                className={`transform opacity-80 transition ease-in-out duration-300 mr-1 ${
                                   isActive ? "rotate-0" : "rotate-[-90deg]"
                                 }`}
                               >
@@ -129,7 +136,7 @@ export default function Home({ page }) {
                                   d="m.6.6 4.9 5.1 5.2-5"
                                 />
                               </svg>
-                              <span className="text-gray-500">{title}</span>
+                              <span className="font-bold text-gray-800">{title}</span>
                             </div>
                           </div>
                           {isActive && (
@@ -163,7 +170,7 @@ export default function Home({ page }) {
                     <div className="flex row text-[22px]  mb-4">
                       <div className="flex-auto">
                         <p>
-                          You're enrolled in{" "}
+                          You're enrolled in <span className="font-bold text-darkred">{inviteResponse.invite.currentCourse}</span>.
                           The class meets on {inviteResponse.messages.meetings}.
                         </p>
                         <p>  You are currently registered for {inviteResponse.invite.registered}.</p>

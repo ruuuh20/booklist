@@ -7,7 +7,7 @@ export default function AssignmentsList() {
       {/* <div class="overflow-x-auto max-w-4xl w-full px-14">
   
 </div> */}
-      <section className="max-w-4xl mt-10">
+      <section className="w-full mt-10 overflow-auto md:max-w-4xl">
         <Tabs>
           <TabList>
             <Tab>Writing</Tab>

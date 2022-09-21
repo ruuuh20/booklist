@@ -8,10 +8,10 @@ export default function Header() {
       <Container>
         <div className="flex flex-wrap justify-between">
           <Link href="/">
-            <a  className="mb-1 md:mb-0"><img className="w-3/5" src="/logoasset1.svg" /></a>
+            <a  className="mb-1 md:mb-0"><img className="w-4/5 md:w-3/5" src="/logoasset1.svg" /></a>
             </Link>
 
-       <nav className='text-[20px]'>[ This is a demo ]</nav>
+       <nav className='text-base md:text-[20px]'>[ This is a demo ]</nav>
         </div>
       </Container>
     </header>

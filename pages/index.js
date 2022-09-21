@@ -154,10 +154,10 @@ export default function Home({ page }) {
                   </div>
 
                   <div className="my-6 leading-8 rounded-30 bg-white widget w-full text-[18px]">
-                    <p className="my-2">Contact us:</p>
-                    <p className="flex justify-between pr-16"><PhoneIcon/>(201) 123-4567</p>
-                    <p className="flex justify-between pr-16"><MailIcon />info@superbooks.edu</p>
-                    <p className="flex justify-between pr-16"><MapIcon />100 Abc St.</p>
+                    <p className="my-2 font-bold">Contact us:</p>
+                    <p className="flex justify-between md:pr-16"><PhoneIcon/>(201) 123-4567</p>
+                    <p className="flex justify-between md:pr-16"><MailIcon />info@superbooks.edu</p>
+                    <p className="flex justify-between md:pr-16"><MapIcon />100 Abc St.</p>
                   </div>
                 </div>
               </aside>

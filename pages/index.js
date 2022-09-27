@@ -47,7 +47,7 @@ export default function Home({ page }) {
     return <div>{error}</div>;
   }
   if (!inviteResponse) {
-    return <div>no invite </div>;
+    return <div>Loading... </div>;
   }
   function onRsvpChange(e) {
     const purchasing = e.target.value === "yes";

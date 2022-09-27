@@ -1,18 +1,14 @@
-# CLASSBOARD (Demo)
+# CLASSBOARD
 
-Site: [https://](https://)
+[Demo A](https://classboard-sigma.vercel.app/?code=49ecac02-cf51-4fba-9a90-655d5f1ba9ad)
+[Demo B](https://classboard-sigma.vercel.app/?code=abc123)
 
-Blog Post:
+- Ongoing project
 
-A preview of books/material used in classes, for parents, students, and teachers.
+- a landing page that uses a unique code for parents/guardians to see an overview of their class. It provides an outline of the curriculum, homework assignment list, class material, and homework schedule.
 
-## Features
-
-- [Next](https://nextjs.org/) 12
-- [SWC Minification](https://nextjs.org/docs/upgrading#swc-replacing-terser-for-minification)
-- [Tailwind](https://tailwindcss.com/) 3.0
+- [Next](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
 - [Prismic](https://prismic.io)
-- Custom [PostCSS](https://postcss.org/) setup preconfigured to allow for `@import` and simple CSS nesting
-- [Framer Motion 4](https://www.framer.com/motion/) (With [LazyMotion](https://www.framer.com/api/motion/lazy-motion/) setup for smaller bundle sizes)
-- SEO preconfigured with [next-seo](https://github.com/garmeeh/next-seo)
-- Airtable
+- [Framer Motion 4](https://www.framer.com/motion/)
+- [Airtable](https://www.airtable.com)

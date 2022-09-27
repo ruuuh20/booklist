@@ -101,6 +101,7 @@ padding: 1.5rem;
 
 .text-max {
   font-size: 3.25rem;
+  line-height: 1.2;
 }
 @media (min-width: 768px) {
 .text-max {

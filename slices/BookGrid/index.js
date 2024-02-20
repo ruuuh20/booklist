@@ -2,7 +2,7 @@ import { PrismicRichText } from '@prismicio/react'
 import { PrismicNextImage } from '@prismicio/next'
 
 const BookGrid = ({ slice }) => (
-  <section className="w-full mt-4 md:max-w-4xl">
+  <section className="w-full mt-4 md:max-w-5xl">
     <span className="text-3xl title">
       {
         slice.primary.title ?
@@ -16,9 +16,9 @@ const BookGrid = ({ slice }) => (
       : <p>start by editing this slice from inside Slice Machine!</p>
     }
 
-<div className="grid grid-cols-[50%_50%] md:grid-cols-[220px_220px_220px_220px] border-outer">
+<div className="grid grid-cols-[50%_50%] md:grid-cols-[160px_160px_160px_160px_160px_160px] border-outer">
   { slice?.items?.map((item, i) => (
-    <div className="rounded p-[20px] md:p-[38px] border-main grid-item">
+    <div className="rounded p-[20px] md:p-[30px] border-main grid-item">
         <div class="rounded">
       <PrismicNextImage field={item.bookImage} 
       imgixParams={{ sat: -30 }} 

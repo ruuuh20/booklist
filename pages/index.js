@@ -16,20 +16,22 @@ import PhoneIcon from "@/components/phoneIcon";
 import MapIcon from "../components/mapIcon";
 import MailIcon from "../components/mailIcon";
 
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getAllByType("page");
-
+  // const page = await client.getAllByType("page");
+  const page = await client.getByUID("page", "grade-6");
+  // console.log(page)
   return {
     props: { page }, // Will be passed to the page component as props
   };
 }
 
 export default function Home({ page }) {
+  console.log("hello");
   const { inviteResponse, error, updating, updateRsvp } = useInvite();
   const [isActive, setIsActive] = useState(false);
   const [value, onChange] = useState(new Date());
@@ -66,30 +68,31 @@ export default function Home({ page }) {
           className="mb-12 md:mb-16 xl:mb-24"
         >
           <Container>
-            <div className="relative h-full overflow-hidden overflow-y-auto md:flex">
-              <aside className="aside-left w-full md:w-[480px]">
+            <div className="relative grid h-full grid-cols-4 gap-4 overflow-hidden overflow-y-auto">
+              <aside className="w-full aside-left ">
                 <div className="relative main-menu text-darkgray">
-                  <div className="mt-6 rounded-30 widget">
-                    <h2 className="title-text text-[2.6rem] font-bold">
+                  <div className=" rounded-20 widget">
+                    <h2 className="title-text text-[2.4rem]">
                       Superbooks Academy
                     </h2>
                     <p className="text-[18px]">Welcome 👋</p>
                   </div>
-                  <div className="mt-6 rounded-30 widget">
+                  <div className="mt-6 rounded-20 widget">
                     {" "}
-                    <h2 className="mb-4 text-2xl font-bold">
+                    <h2 className="mb-0 text-2xl font-bold">
                       2022 Fall Semester
                     </h2>
-                    <h4 className="text-xl font-bold">
-                      Sept 5 - Jane 10, 2022
-                    </h4>
+                    <h4 className="text-lg ">Sept 5 - Jane 10, 2022</h4>
                     <div className="py-2 my-2 border-t border-gray-400 row">
-                      <p className="mb-2 text-base uppercase">Report Card</p>
+                      <p className="mb-1 text-base font-bold uppercase letter-spacing-lg">
+                        {" "}
+                        report cards
+                      </p>
                       <a
                         href="https://studentreportwrapped.netlify.app/card"
                         target="_blank"
                         rel="noreferrer"
-                        className="bg- rounded-lg p-1 block w-[90px]"
+                        className="curosrpointer bg- rounded-lg p-1 block w-[90px]"
                       >
                         <div className="flex justify-center sidebar-img">
                           <Image
@@ -101,11 +104,22 @@ export default function Home({ page }) {
                         </div>
                       </a>
                     </div>
-                    <div className="py-2 my-2 row"> <p className="mb-2 text-base uppercase">Attendance</p>
-                    <p>100%</p>
-                     <div className="p-6">
-                       <Calendar className="cal" onChange={onChange} value={value} /></div>
-                     </div>
+                    <div className="py-2 mt-2 row">
+                      {" "}
+                      <p className="mb-1 text-base font-bold uppercase letter-spacing-lg">
+                        Attendance
+                      </p>
+                      <p>
+                        100% <span></span>
+                      </p>
+                      <div className="p-6">
+                        <Calendar
+                          className="cal"
+                          onChange={onChange}
+                          value={value}
+                        />
+                      </div>
+                    </div>
                     <div>
                       <div className="accordion">
                         <div className="accordion-item">
@@ -136,7 +150,9 @@ export default function Home({ page }) {
                                   d="m.6.6 4.9 5.1 5.2-5"
                                 />
                               </svg>
-                              <span className="font-bold text-gray-800">{title}</span>
+                              <span className="font-bold text-gray-800">
+                                {title}
+                              </span>
                             </div>
                           </div>
                           {isActive && (
@@ -153,16 +169,25 @@ export default function Home({ page }) {
                     </div>
                   </div>
 
-                  <div className="my-6 leading-8 rounded-30 bg-white widget w-full text-[18px]">
+                  <div className="my-6 leading-8 rounded-20 bg-white widget w-full text-[18px]">
                     <p className="my-2 font-bold">Contact us:</p>
-                    <p className="flex justify-between md:pr-16"><PhoneIcon/>(201) 123-4567</p>
-                    <p className="flex justify-between md:pr-16"><MailIcon />info@superbooks.edu</p>
-                    <p className="flex justify-between md:pr-16"><MapIcon />100 Abc St.</p>
+                    <p className="flex justify-between md:pr-16">
+                      <PhoneIcon />
+                      (201) 123-4567
+                    </p>
+                    <p className="flex justify-between md:pr-16">
+                      <MailIcon />
+                      info@superbooks.edu
+                    </p>
+                    <p className="flex justify-between md:pr-16">
+                      <MapIcon />
+                      100 Abc St.
+                    </p>
                   </div>
                 </div>
               </aside>
-              <main className="w-full pl-4">
-                <div>
+              <div className="w-full col-span-2 row-span-2">
+                <div className="widget-main rounded-20">
                   <div className="text-darkgray">
                     <h3 className="text-max ">
                       Hello, <strong>{inviteResponse.invite.name}</strong>!
@@ -170,13 +195,21 @@ export default function Home({ page }) {
                     <div className="flex row text-[22px]  mb-4">
                       <div className="flex-auto">
                         <p>
-                          You're enrolled in <span className="font-bold text-darkred">{inviteResponse.invite.currentCourse}</span>.
-                          The class meets on {inviteResponse.messages.meetings}.
+                          You're enrolled in{" "}
+                          <span className="p-2 font-bold rounded-lg bg-[#e3e3e3] text-darkred">
+                            {inviteResponse.invite.currentCourse}
+                          </span>
+                          . The class meets on{" "}
+                          {inviteResponse.messages.meetings}.
                         </p>
-                        <p>  You are currently registered for {inviteResponse.invite.registered}.</p>
+                        <p>
+                          {" "}
+                          You are currently registered for{" "}
+                          {inviteResponse.invite.registered}.
+                        </p>
                       </div>
                     </div>
-                   
+
                     <div className="flex my-2 row">
                       <div>
                         <fieldset className="" disabled={updating}>
@@ -215,13 +248,18 @@ export default function Home({ page }) {
                   </div>
                   <div className="mt-4">
                     <SliceZone
-                      slices={page[0].data.slices}
+                      slices={page.data.slices}
                       components={components}
                     />
                   </div>
                   <AssignmentsList />
                 </div>
-              </main>
+              </div>
+              <div className="right-aside">
+                <div className="widget rounded-20">
+                  <div className="content">Content</div>
+                </div>
+              </div>
             </div>
 
             {/* {page.map((p, index) => (
